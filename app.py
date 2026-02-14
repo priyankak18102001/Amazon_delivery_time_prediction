@@ -14,7 +14,7 @@ st.set_page_config(page_title="Amazon Delivery Predictor", layout="centered")
 MODEL_URL = "https://drive.google.com/file/d/1hgJxWa0UD5w7sGhAC3xYJfNV4Qloi7mB/view?usp=drive_link"
 MODEL_PATH = "delivery_model.pkl"
 
-FEATURE_URL = "https://drive.google.com/file/d/1hgJxWa0UD5w7sGhAC3xYJfNV4Qloi7mB/view?usp=drive_link"
+FEATURE_URL = "https://drive.google.com/file/d/1vvcoIHaLzA8ECGfRtXZDVImwaZIwDQVh/view?usp=drive_link"
 FEATURE_PATH = "feature_columns.pkl"
 
 feature_importance = pd.read_csv("feature_importance.xls")
