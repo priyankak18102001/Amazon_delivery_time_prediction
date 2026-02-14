@@ -9,9 +9,25 @@ st.set_page_config(page_title="Amazon Delivery Predictor", layout="centered")
 
 
 # Load model
-model = pickle.load(open("delivery_model.pkl", "rb"))
-feature_columns = pickle.load(open("feature_columns.pkl", "rb"))
+MODEL_URL = "https://drive.google.com/file/d/1hgJxWa0UD5w7sGhAC3xYJfNV4Qloi7mB/view?usp=drive_link"
+MODEL_PATH = "delivery_model.pkl"
+
+FEATURE_URL = "https://drive.google.com/file/d/1hgJxWa0UD5w7sGhAC3xYJfNV4Qloi7mB/view?usp=drive_link"
+FEATURE_PATH = "feature_columns.pkl"
+
 feature_importance = pd.read_csv("feature_importance.xls")
+
+# Download model if not present
+if not os.path.exists(MODEL_PATH):
+    gdown.download(MODEL_URL, MODEL_PATH, quiet=False)
+
+# Download feature columns if not present
+if not os.path.exists(FEATURE_PATH):
+    gdown.download(FEATURE_URL, FEATURE_PATH, quiet=False)
+
+# Load files
+model = pickle.load(open(MODEL_PATH, "rb"))
+feature_columns = pickle.load(open(FEATURE_PATH, "rb"))
 
 st.title("Amazon Delivery Time Prediction")
 
